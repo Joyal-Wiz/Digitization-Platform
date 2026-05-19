@@ -12,11 +12,16 @@ var builder = WebApplication.CreateBuilder(args);
 // DATABASE CONNECTION
 // =========================
 
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+// =========================
+// DEPENDENCY INJECTION
+// =========================
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 
 // =========================
@@ -37,7 +42,7 @@ builder.Services.AddControllers();
 
 
 // =========================
-// SWAGGER / OPENAPI
+// SWAGGER
 // =========================
 
 builder.Services.AddEndpointsApiExplorer();
@@ -51,13 +56,12 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll",
-        policy =>
-        {
-            policy.AllowAnyOrigin()
-                  .AllowAnyMethod()
-                  .AllowAnyHeader();
-        });
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
 });
 
 
