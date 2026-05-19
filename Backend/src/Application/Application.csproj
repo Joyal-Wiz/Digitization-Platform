@@ -10,6 +10,13 @@
     <PackageReference Include="MediatR" Version="14.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Staff\Commands\" />
+    <Folder Include="Features\Staff\Handlers\" />
+    <Folder Include="Features\Staff\Validators\" />
+    <Folder Include="Features\Staff\Queries\" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>

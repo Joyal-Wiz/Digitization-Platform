@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Domain.Entities
+{
+    public class Customer
+    {
+        public int Id { get; set; }
+
+        public string FullName { get; set; } = string.Empty;
+
+        public string PhoneNumber { get; set; } = string.Empty;
+
+        public string Address { get; set; } = string.Empty;
+
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        public ICollection<UploadedDocument> Documents { get; set; }
+            = new List<UploadedDocument>();
+    }
+}
